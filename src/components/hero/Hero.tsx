@@ -2,6 +2,7 @@
 
 import { FiArrowRight, FiDownload, FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const socials = [
     { icon: FiGithub, href: "https://github.com/seu-usuario", label: "GitHub" },
@@ -10,29 +11,67 @@ const socials = [
     { icon: FiMail, href: "mailto:voce@email.com", label: "Email" },
 ];
 
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.8,
+            delayChildren: 0.1,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.4, ease: "easeOut" },
+    },
+};
+
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden bg-background">
-            <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 py-24 lg:grid-cols-2">
+        <section className="relative flex h-screen items-center overflow-hidden bg-background">
+            <Image
+                src="/euPc.png"
+                alt="Guilherme Barroso"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-background/70" />
+            <div className="absolute inset-x-0 bottom-0 h-56 bg-linear-to-b from-transparent to-background" />
+
+            <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
                 {/* Coluna de texto */}
-                <div className="flex flex-col gap-6">
-                    <p className="text-sm text-muted-foreground">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex flex-col gap-6"
+                >
+                    <motion.p variants={itemVariants} className="text-sm text-muted-foreground">
                         Olá, meu nome é{" "}
                         <span className="font-semibold text-success">
                             Guilherme Barroso
                         </span>
-                    </p>
+                    </motion.p>
 
-                    <h1 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-4xl font-bold leading-tight text-foreground sm:text-5xl"
+                    >
                         Desenvolvedor{" "}
                         <span className="text-success">Front-End</span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="max-w-md text-muted-foreground">
+                    <motion.p variants={itemVariants} className="max-w-md text-muted-foreground">
                         Sou um desenvolvedor com foco em front-end que cria sites modernos, responsivos e de alto desempenho.
-                    </p>
+                    </motion.p>
 
-                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 pt-2">
                         <a
                             href="#projects"
                             className="inline-flex items-center gap-2 rounded-full bg-success px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-105"
@@ -48,9 +87,9 @@ export default function Hero() {
                             Download CV
                             <FiDownload className="h-4 w-4" />
                         </a>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex items-center gap-3 pt-4">
+                    <motion.div variants={itemVariants} className="flex items-center gap-3 pt-4">
                         {socials.map(({ icon: Icon, href, label }) => (
                             <a
                                 key={label}
@@ -63,11 +102,16 @@ export default function Hero() {
                                 <Icon className="h-4 w-4" />
                             </a>
                         ))}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
-                {/* Coluna visual */}
-                <div className="relative mx-auto flex h-[420px] w-full max-w-md items-center justify-center">
+                {/* Coluna visual (mockup) */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease: "easeOut", delay: 0.25 }}
+                    className="relative mx-auto flex h-[420px] w-full max-w-md items-center justify-center"
+                >
                     {/* glow de fundo */}
                     <div className="absolute h-64 w-64 rounded-full bg-success/20 blur-3xl" />
 
@@ -125,7 +169,7 @@ export default function Hero() {
                             <p>{"}"}</p>
                         </div>
                     </motion.div>
-                </div>
+                </motion.div>
             </div>
 
             <style jsx>{`
