@@ -115,10 +115,12 @@ export function SpotlightNavbar({
     const handleItemClick = (item: NavItem, index: number) => {
         setActiveIndex(index);
         onItemClick?.(item, index);
+        const target = document.querySelector(item.href);
+        target?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
-        <div className={cn("absolute top-0 left-1/2 -translate-x-1/2 z-20 flex justify-center pt-3", className)}>
+        <div className={cn("fixed top-0 left-1/2 -translate-x-1/2 z-20 flex justify-center pt-3", className)}>
             <nav
                 ref={navRef}
                 className={cn(
