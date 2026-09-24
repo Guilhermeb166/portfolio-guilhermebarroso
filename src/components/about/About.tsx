@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { FiGlobe, FiMonitor, FiSmartphone, FiZap } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const stats = [
     { value: "8º", label: "Semestre Ciência da Computação" },
@@ -115,25 +116,28 @@ function ServiceCard({
 export default function About() {
     return (
         <section id="about" className="relative bg-background py-24">
-            <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto max-w-7xl px-6 ">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
+                    className="flex justify-center items-center"
                 >
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-sm font-semibold uppercase tracking-wide text-success"
-                    >
-                        Sobre Mim
-                    </motion.p>
-                    <motion.h2
-                        variants={itemVariants}
-                        className="mt-2 max-w-2xl text-3xl font-bold text-foreground sm:text-4xl"
-                    >
-                        Da lógica de back-end a interfaces front-end
-                    </motion.h2>
+                    <div className="flex flex-col items-start">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-sm font-semibold uppercase tracking-wide text-success"
+                        >
+                            Sobre Mim
+                        </motion.p>
+                        <motion.h2
+                            variants={itemVariants}
+                            className="mt-2 max-w-2xl text-3xl font-bold text-foreground sm:text-4xl"
+                        >
+                            Da lógica de back-end a interfaces front-end
+                        </motion.h2>
+                    </div>
 
                     <motion.div variants={itemVariants} className="mt-8 max-w-2xl">
                         <p className="text-muted-foreground">
@@ -154,6 +158,8 @@ export default function About() {
                             ))}
                         </div>
                     </motion.div>
+
+
                 </motion.div>
 
                 <div className="mt-20">
@@ -250,6 +256,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
+                
             </div>
         </section>
     );
