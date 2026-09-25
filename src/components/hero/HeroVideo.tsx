@@ -163,6 +163,7 @@ export default function HeroVideo() {
 
                 <div ref={overlayRef} className="absolute inset-0 bg-background" style={{ opacity: 0.15 }} />
 
+<div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-background to-transparent" />
                 <div
                     ref={welcomeRef}
                     className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
