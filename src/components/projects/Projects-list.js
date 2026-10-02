@@ -9,7 +9,8 @@ export const projects = [
         year: "2026",
         title: "TaskManager",
         description:
-            "Plataforma de gestão de projetos, tarefas e equipes, com controle de permissões por empresa.",
+                "Plataforma de gestão de projetos, tarefas e equipes, com controle de permissões por empresa.",
+        details: "Escreva aqui o texto completo: o problema que resolve, o que você construiu, desafios técnicos, resultado...",
         tags: ["Next.js", "Firebase", "Tailwind", "googleapis", "Material-UI"],
         href: "https://taskmanager.nextsolve.com.br/",
     },
@@ -21,6 +22,7 @@ export const projects = [
         title: "API TaskManager",
         description:
             "Serviço de licenciamento e cobrança do TaskManager: valida appKeys, processa assinaturas via Asaas e expira licenças automaticamente.",
+        details: "Escreva aqui o texto completo: o problema que resolve, o que você construiu, desafios técnicos, resultado...",
         tags: ["Node.js", "TypeScript", "Prisma", "Redis", "Supabase"],
         href: "https://api-taskmanager.nextsolve.com.br/",
     },
@@ -32,6 +34,7 @@ export const projects = [
         title: "VisioCorp",
         description:
             "Site institucional para o setor óptico, com foco em conversão e apresentação de serviços.",
+        details: "Escreva aqui o texto completo: o problema que resolve, o que você construiu, desafios técnicos, resultado...",
         tags: ["Next.js", "Tailwind", "Material-UI"],
         href: "https://www.visiocorp.com.br/",
     },
@@ -43,6 +46,7 @@ export const projects = [
         title: "Medalhas Brasil",
         description:
             "Catálogo institucional de medalhas para eventos esportivos, com apresentação de produtos.",
+        details: "Escreva aqui o texto completo: o problema que resolve, o que você construiu, desafios técnicos, resultado...",
         tags: ["Next.js", "Tailwind", "Material-UI"],
         href: "https://www.medalhasbrasil.com/",
     },
@@ -54,6 +58,7 @@ export const projects = [
         title: "Controle Financeiro",
         description:
             "Aplicação para controle de entradas, saídas e extratos financeiros pessoais.",
+        details: "Escreva aqui o texto completo: o problema que resolve, o que você construiu, desafios técnicos, resultado...",
         tags: ["Next.js", "Tailwind", "Material-UI", "Firebase"],
         href: "https://meu-controle-financeiro-web.vercel.app/",
     },

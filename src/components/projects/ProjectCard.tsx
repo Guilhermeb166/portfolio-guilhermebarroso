@@ -15,7 +15,7 @@ type ProjectCardProps = Readonly<{
     title: string;
     description: string;
     tags: readonly string[]; // Marking the array itself as readonly is also good practice
-    href?: string;
+    onClick: () => void
     index: number;
 }>;
 
@@ -28,10 +28,10 @@ export function ProjectCard({
     title,
     description,
     tags,
-    href,
+    onClick,
     index,
 }: ProjectCardProps) {
-    const Wrapper = href ? "a" : "div";
+    // const Wrapper = href ? "a" : "div";
 
     const imageProject = () =>{
         if (image) {
@@ -63,9 +63,10 @@ export function ProjectCard({
             transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
             className="h-full"
         >
-            <Wrapper
-                {...(href ? { href, target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card/60 transition-colors duration-500 hover:border-success/40"
+            <button
+                type="button"
+                onClick={onClick}
+                className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-border bg-card/60 text-left transition-colors duration-500 hover:border-success/40"
             >
                 <div className="relative h-56 w-full overflow-hidden">
                     {imageProject()}
@@ -98,7 +99,7 @@ export function ProjectCard({
                         <FiArrowUpRight className="h-5 w-5 shrink-0 text-success transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                     </div>
                 </div>
-            </Wrapper>
+            </button>
         </motion.div>
     );
 }

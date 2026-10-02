@@ -1,10 +1,16 @@
 "use client";
 
+import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from './Projects-list'
 import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
 
 export default function Projects() {
+
+    const [selected, setSelected] = useState<(typeof projects)[number] | null>(null);
+    const handleClose = useCallback(() => setSelected(null), []);
+
     return (
         <section id="projects" className="relative bg-background py-24">
             <div className="mx-auto max-w-7xl px-6">
@@ -27,10 +33,16 @@ export default function Projects() {
 
                 <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project, i) => (
-                        <ProjectCard key={project.title} {...project} index={i} />
+                        <ProjectCard
+                            key={project.title}
+                            {...project}
+                            index={i}
+                            onClick={() => setSelected(project)}
+                        />
                     ))}
                 </div>
             </div>
+            <ProjectModal project={selected} onClose={handleClose} />
         </section>
     );
 }
