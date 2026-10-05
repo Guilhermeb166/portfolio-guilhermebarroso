@@ -163,7 +163,7 @@ export default function HeroVideo() {
 
                 <div ref={overlayRef} className="absolute inset-0 bg-background" style={{ opacity: 0.15 }} />
 
-<div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-background to-transparent" />
                 <div
                     ref={welcomeRef}
                     className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
@@ -171,7 +171,7 @@ export default function HeroVideo() {
                 >
                     <p className="text-lg text-muted-foreground sm:text-xl">Bem-vindo</p>
                     <h1 className="mt-2 text-4xl font-bold text-foreground sm:text-6xl">
-                        Meu nome é <span className="text-success">Guilherme</span>
+                        Me chamo <span className="text-success">Guilherme Barroso</span>
                     </h1>
                 </div>
 

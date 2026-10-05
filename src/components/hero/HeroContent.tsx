@@ -52,7 +52,7 @@ export default function HeroContent({socials}: Props) {
                 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl"
             >
                 Desenvolvedor{" "}
-                <span className="text-success">Front-End</span>
+                <span className="text-success">Full-Stack</span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="max-w-md text-muted-foreground">
