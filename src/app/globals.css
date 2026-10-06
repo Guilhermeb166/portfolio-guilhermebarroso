@@ -116,3 +116,15 @@ textarea:-webkit-autofill:focus {
     box-shadow: 0 0 0 1000px var(--background) inset;
     transition: background-color 9999s ease-in-out 0s;
 }
+
+@media (hover: hover) and (pointer: fine) {
+    html.custom-cursor,
+    html.custom-cursor * {
+        cursor: none;
+    }
+
+    html.custom-cursor input,
+    html.custom-cursor textarea {
+        cursor: text;
+    }
+}

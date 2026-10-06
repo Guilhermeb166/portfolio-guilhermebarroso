@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/layout/header/Header";
 import LoadingScreen from "@/components/loading/LoadingScreen";
 import Footer from "@/layout/footer/Footer";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Guilherme | Criação de Sites Profissionais",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="relative min-h-full flex flex-col">
         <LoadingScreen/>
+        <CustomCursor/>
         <Header/>
         {children}
         <Footer/>
