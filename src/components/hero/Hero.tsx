@@ -15,14 +15,14 @@ const socials = [
 
 export default function Hero() {
     return (
-        <section className="relative flex h-screen items-center overflow-hidden bg-background">
+        <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
             <Image
                 src="/hero-final-frame.jpg"
                 alt="Guilherme Barroso"
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover object-center"
+                className="object-cover object-[55%_center]"
             />
             <div className="absolute inset-0 bg-background/70" />
             <div className="absolute inset-x-0 bottom-0 h-56 bg-linear-to-b from-transparent to-background" />

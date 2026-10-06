@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 import HeroContent from "./HeroContent";
+import Hero from "./Hero";
 import HeroMockup from "./HeroMockup";
 import { HERO_SCROLL_VH, SCRUB_END } from "./heroScrollConfig";
 
@@ -14,8 +15,6 @@ const socials = [
     { icon: FiMail, href: "mailto:voce@email.com", label: "Email" },
 ];
 
-// Interpola `p` dentro de [x0, x1] pra um valor entre y0 e y1,
-// sempre travado (clampado) fora desse intervalo.
 function mapRange(p: number, x0: number, x1: number, y0: number, y1: number) {
     if (p <= x0) return y0;
     if (p >= x1) return y1;
@@ -42,7 +41,7 @@ function contentFor(p: number) {
     return mapRange(p, SCRUB_END, SCRUB_END + 0.1, 0, 1);
 }
 
-export default function HeroVideo() {
+function HeroVideoDesktop() {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
@@ -188,4 +187,21 @@ export default function HeroVideo() {
             </motion.div>
         </div>
     );
+}
+
+export default function HeroVideo() {
+    const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+    useEffect(() => {
+        const query = window.matchMedia("(max-width: 767px)");
+        setIsMobile(query.matches);
+
+        const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+        query.addEventListener("change", onChange);
+        return () => query.removeEventListener("change", onChange);
+    }, []);
+
+    if (isMobile === null) return <div className="h-screen bg-background" />;
+
+    return isMobile ? <Hero /> : <HeroVideoDesktop />;
 }

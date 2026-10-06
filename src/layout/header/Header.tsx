@@ -6,10 +6,16 @@ import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
 import { HERO_SCROLL_VH } from "@/components/hero/heroScrollConfig";
 
 export default function Header() {
+    
     const [heroHeightPx, setHeroHeightPx] = useState(Number.POSITIVE_INFINITY);
 
     useEffect(() => {
-        const updateHeight = () => setHeroHeightPx((window.innerHeight * HERO_SCROLL_VH) / 100);
+        const updateHeight = () =>
+        setHeroHeightPx(
+            window.innerWidth < 768
+                ? window.innerHeight
+                : (window.innerHeight * HERO_SCROLL_VH) / 100,
+        );
         updateHeight();
         window.addEventListener("resize", updateHeight);
         return () => window.removeEventListener("resize", updateHeight);
