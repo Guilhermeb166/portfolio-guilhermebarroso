@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/layout/header/Header";
 import LoadingScreen from "@/components/loading/LoadingScreen";
+import Footer from "@/layout/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Guilherme | Criação de Sites Profissionais",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <LoadingScreen/>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
