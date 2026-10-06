@@ -20,7 +20,7 @@ export default function AboutMe() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex justify-center items-center"
+                className="flex flex-col lg:flex-row justify-center items-center gap-1"
             >
                 <div className="flex flex-col items-start">
                     <motion.p
@@ -37,7 +37,7 @@ export default function AboutMe() {
                     </motion.h2>
                 </div>
 
-                <motion.div variants={itemVariants} className=" mt-8 flex flex-col gap-7 max-w-2xl">
+                <motion.div variants={itemVariants} className=" mt-8 flex flex-col gap-7 max-w-2xl text-justify tracking-wide">
                     <p className="text-muted-foreground">
                         Desenvolvedor Full-Stack Júnior, atuando atualmente na BM Code
                         na criação e otimização de procedures, triggers e eventos
